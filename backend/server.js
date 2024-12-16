@@ -11,9 +11,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.BASE_URL,
+    origin: "",
     credentials: true,
-    methods: "PUT,POST,GET,DELETE,PATCH,HEAD",
   })
 );
 
@@ -21,10 +20,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/api/user/", userRoutes);
-
+app.get("/", () => {
+  res.send("API is running...");
+});
 app.use(notFound);
 app.use(errorHandler);
-
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
