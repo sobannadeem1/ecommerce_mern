@@ -185,22 +185,24 @@ export const useAppStore = create((set, get) => ({
 
   logout: async (navigate, setShowMenu) => {
     try {
-      set(() => ({ loading: true }));
-      const { status } = await API("/api/user/logout", {
-        method: "POST",
-      });
+      set(() => ({ loading: true })); // Set loading state
+      const response = await API.post("/api/user/logout"); // Use POST method with Axios
 
-      if (status === 200) {
+      if (response.status === 200) {
+        // Clear local storage and reset state
+        localStorage.clear();
         setShowMenu(false);
         set(() => ({ loading: false, user: null }));
-        localStorage.clear();
+
+        // Navigate and notify the user
         navigate("/");
         toast.success("Logged out successfully");
       }
     } catch (error) {
-      set((state) => ({ loading: false }));
-      toast, error(error?.response?.data?.message);
-      console.log(error);
+      // Handle errors gracefully
+      set(() => ({ loading: false }));
+      toast.error(error?.response?.data?.message || "Logout failed");
+      console.error("Logout error:", error);
     }
   },
 }));
