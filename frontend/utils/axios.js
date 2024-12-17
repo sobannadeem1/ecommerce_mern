@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://ecommerce-mern-delta.vercel.app",
   withCredentials: true,
   timeout: 60000,
 });
