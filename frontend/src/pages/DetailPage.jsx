@@ -13,7 +13,7 @@ const DetailPage = () => {
   const getSingleProduct = async () => {
     try {
       const { data, status } = await axios(
-        `https://ecommerce-mern-delta.vercel.app/api/products/${id}`
+        `https://ecommerce-backend-new.vercel.app/api/products/${id}`
       );
       setSingleProduct(data);
     } catch (error) {
