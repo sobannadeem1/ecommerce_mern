@@ -57,7 +57,7 @@ const CartCard = ({ item }) => {
       </div>
       <div className="flex text-right max-w-[120px] flex-col justify-between">
         <h2 className="ml-[20px] text-center font-semibold text-slate-600">
-          {"₹ "}
+          {"PKR "}
           <span className="text-black">
             {Math.ceil(item.product.price * 81)}
           </span>

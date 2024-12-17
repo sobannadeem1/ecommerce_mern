@@ -29,7 +29,7 @@ const ProductCard = ({ item }) => {
           {productName(item.title)}
         </h2>
         <h2 className="text-center">
-          {"₹  "}
+          {"PKR  "}
           <span className="text-red-500">{Math.ceil(item.price * 81)}</span>
         </h2>
       </div>
