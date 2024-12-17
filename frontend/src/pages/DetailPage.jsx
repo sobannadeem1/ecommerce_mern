@@ -13,7 +13,7 @@ const DetailPage = () => {
   const getSingleProduct = async () => {
     try {
       const { data, status } = await axios(
-        `https://ecommerce-backend-new.vercel.app/api/products/${id}`
+        `https://ecommerce-mern-delta.vercel.app/api/products/${id}`
       );
       setSingleProduct(data);
     } catch (error) {
@@ -52,7 +52,7 @@ const DetailPage = () => {
                   </div>
                   <div>
                     <h2 className="text-[16px] font-[600]">
-                      {"₹  "}
+                      {"PKR  "}
                       <span className="text-red-500">
                         {Math.ceil(singleProduct?.price * 81)}
                       </span>
