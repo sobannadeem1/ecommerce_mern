@@ -2,16 +2,34 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HiPlus, HiMinus } from "react-icons/hi";
 import { useAppStore } from "../../store/appStore";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CartCard = ({ item }) => {
   const { removeCart, addCartQty, removeCartQty } = useAppStore();
+
   const productName = (name) => {
     if (name.length > 20) {
       return name.substring(0, 20) + "...";
     }
     return name;
   };
+
   const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    toast.success("Product submitted successfully!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
   return (
     <div className="grid grid-cols-4 h-full bg-white gap-[5px] border-b-[1px] pb-[10px] w-full">
       <div className="h-[80px] w-[80px]">
@@ -69,6 +87,15 @@ const CartCard = ({ item }) => {
           Remove
         </h2>
       </div>
+      <div className="col-span-4 mt-2 text-center">
+        <button
+          onClick={handleSubmit}
+          className="rounded-[4px] bg-blue-500 text-white px-[20px] py-[5px] hover:bg-blue-700"
+        >
+          Submit
+        </button>
+      </div>
+      <ToastContainer />
     </div>
   );
 };
