@@ -57,7 +57,7 @@ const Cart = () => {
               </div>
               <div className="flex flex-col gap-[8px] rounded-[4px] bg-slate-50 p-[15px]">
                 <h2 className="border-b-[1px] py-[4px] text-[18px] font-[700]">
-                  Total Price {"₹"} {total}
+                  Total Price {"PKR"} {total}
                 </h2>
                 <h3 className="border-b-[1px] py-[4px]">
                   Distributor Price -20
